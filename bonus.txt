@@ -1,0 +1,4 @@
+PO2 and PO1 have the same geolocations, so it is reduntat to keep both
+PO1 and PO3 has negative scores, means most of the requests are closer to POI location and requests are less scattered
+PO4 has positive score, it means the requests are skewed and further than mean
+magnitude of PO1 score is greater than PO3 score, so we can deduce that PO3 requests are closer to its location
