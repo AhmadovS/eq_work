@@ -1,5 +1,3 @@
-import os
-os.environ["PYSPARK_PYTHON"]="/home/sahmadov/anaconda3/bin/python"
 from pyspark import SparkContext, SQLContext
 from scipy.spatial import distance
 import pyspark.sql.functions as F
@@ -13,11 +11,11 @@ def load_csv(fname="data/DataSample.csv"):
 
 def remove_outliers(data, poi_stats):
 
-    print("Before: ", data.count())
+    print("Number of data before removing outliers: ", data.count())
     mean, stdev = poi_stats
     r = data.filter(data.distance.cast(DoubleType()) < mean +2*stdev)
     r = r.filter(r.distance.cast(DoubleType()) > mean -2*stdev)
-    print("After: ", r.count())
+    print("Number of data after removing outliers: ", r.count())
     return r
 
 def calc_score(data):
